@@ -1,0 +1,40 @@
+<button routerLink="/create">Create Issue</button>
+
+<br/>
+<br/>
+
+<table>
+  <thead>
+    <th *ngFor="let column of columns">
+      {{ column }}
+    </th>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let issue of issues">
+      <td>
+        {{ issue.title }}
+      </td>
+      <td>
+        {{ issue.responsible }}
+      </td>
+      <td>
+        {{ issue.description }}
+      </td>
+      <td>
+        {{ issue.severity }}
+      </td>
+      <td>
+        {{ issue.status }}
+      </td>
+      <td>
+        <button (click)="editIssue(issue._id)">
+          Edit Issue
+        </button>
+        <button (click)="deleteIssue(issue._id)">
+          Delete Issue
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

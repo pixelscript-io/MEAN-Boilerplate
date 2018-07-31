@@ -1,0 +1,42 @@
+<h1>Edit Issue</h1>
+
+<form [formGroup]="updateForm">
+  <input type="text"
+         placeholder="Issue Title"
+         formControlName="title"
+         #title>
+  <input type="text"
+         placeholder="Responsible"
+         formControlName="responsible"
+         #responsible>
+  <input type="text"
+         placeholder="Description"
+         formControlName="description"
+         #description>
+  <select placeholder="Severity"
+          formControlName="severity"
+          #severity>
+    <option value="Low">Low</option>
+    <option value="Medium">Medium</option>
+    <option value="High">High</option>
+  </select>
+  <select placeholder="Status"
+          formControlName="status"
+          #status>
+    <option value="Open">Open</option>
+    <option value="Pending">Pending</option>
+    <option value="Closed">Closed</option>
+  </select>
+</form>
+
+<br/>
+<br/>
+
+<button routerLink="/list">Go Back</button>
+
+<br/>
+<button type="submit"
+        (click)="updateIssue(title.value, responsible.value, description.value, severity.value, status.value)"
+        [disabled]="updateForm.pristine || updateForm.invalid">
+  Update Issue
+</button>

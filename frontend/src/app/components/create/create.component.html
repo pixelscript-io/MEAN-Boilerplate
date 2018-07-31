@@ -1,0 +1,35 @@
+<h1>Create Issue</h1>
+
+<form [formGroup]="createForm">
+  <input type="text"
+         placeholder="Issue Title"
+         formControlName="title"
+         #title>
+  <input type="text"
+         placeholder="Responsible"
+         formControlName="responsible"
+         #responsible>
+  <input type="text"
+         placeholder="Description"
+         formControlName="description"
+         #description>
+  <select placeholder="Severity"
+          formControlName="severity"
+          #severity>
+    <option value="Low">Low</option>
+    <option value="Medium">Medium</option>
+    <option value="High">High</option>
+  </select>
+</form>
+
+<br/>
+<br/>
+
+<button routerLink="/list">Go Back</button>
+
+<br/>
+<button type="submit"
+        (click)="addIssue(title.value, responsible.value, description.value, severity.value)"
+        [disabled]="createForm.pristine || createForm.invalid">
+  Create Issue
+</button>
