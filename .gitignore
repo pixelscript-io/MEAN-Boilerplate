@@ -1,2 +1,2 @@
-# MongoDB Data
-**/datadebug.log
+# Ignore folder named 'data'
+data/
